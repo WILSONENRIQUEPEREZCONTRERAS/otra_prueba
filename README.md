@@ -1,5 +1,4 @@
 # otra_prueba
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -85,6 +84,3 @@
 </body>
 </html>
 
-
-
-   
