@@ -1,75 +1,90 @@
 # otra_prueba
 
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mini Chat de Preguntas</title>
+  <title>Hola Mundo Creativo</title>
+  <style>
+    /* Fondo degradado animado */
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #a1c4fd, #c2e9fb);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    /* Estilo del texto */
+    h1 {
+      font-size: 4rem;
+      color: white;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    /* Botón interactivo */
+    button {
+      margin-top: 20px;
+      padding: 10px 25px;
+      font-size: 1.2rem;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background-color: #ff6f91;
+      color: white;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff4757;
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 <body>
-  <h1>Mini Chat de Preguntas</h1>
-
-  <button id="mostrarPregunta">Hazme una pregunta</button>
-  <p id="pregunta"></p>
-
-  <input type="text" id="respuestaUsuario" placeholder="Escribe tu respuesta aquí">
-  <button id="enviarRespuesta">Enviar respuesta</button>
-  <p id="respuesta"></p>
+  <div style="text-align:center;">
+    <h1 id="holaMundo">Hola Mundo 🌎</h1>
+    <button id="cambiarTexto">Hazme saludar</button>
+  </div>
 
   <script>
-    const preguntas = [
-      "¿Qué tal tu día?",
-      "¿Cómo te ha ido hoy?",
-      "¿Qué cuentas de nuevo?",
-      "¿Todo bien por ahí?",
-      "¿Cómo te sientes ahora?"
+    const texto = document.getElementById('holaMundo');
+    const boton = document.getElementById('cambiarTexto');
+
+    const saludos = [
+      "¡Hola Mundo! 😄",
+      "¡Hola Universo! ✨",
+      "¡Hey tú! 👋",
+      "¡Saludos desde GitHub! 🖤",
+      "¡Hola, programador/a! 💻"
     ];
 
-    const botonPregunta = document.getElementById('mostrarPregunta');
-    const parrafoPregunta = document.getElementById('pregunta');
-    const inputRespuesta = document.getElementById('respuestaUsuario');
-    const botonEnviar = document.getElementById('enviarRespuesta');
-    const parrafoRespuesta = document.getElementById('respuesta');
-
-    let preguntaActual = "";
-
-    // Función para mostrar pregunta aleatoria
-    botonPregunta.addEventListener('click', () => {
-      const indice = Math.floor(Math.random() * preguntas.length);
-      preguntaActual = preguntas[indice];
-      parrafoPregunta.textContent = preguntaActual;
-      parrafoRespuesta.textContent = "";
-      inputRespuesta.value = "";
-    });
-
-    // Función para analizar respuesta
-    botonEnviar.addEventListener('click', () => {
-      const userResp = inputRespuesta.value.trim().toLowerCase();
-
-      if(userResp === "") {
-        parrafoRespuesta.textContent = "Por favor escribe algo antes de enviar.";
-        return;
-      }
-
-      let mensaje = "";
-
-      // Respuestas básicas según palabras clave
-      if(userResp.includes("bien") || userResp.includes("genial") || userResp.includes("ok")) {
-        mensaje = "¡Qué bueno! Me alegra saberlo 😊";
-      } else if(userResp.includes("mal") || userResp.includes("cansado") || userResp.includes("triste")) {
-        mensaje = "Vaya, espero que mañana sea un mejor día 💛";
-      } else if(userResp.includes("nada") || userResp.includes("normal")) {
-        mensaje = "Entiendo, a veces los días son tranquilos 😌";
-      } else {
-        mensaje = "Gracias por compartir, es interesante lo que me dices 🤔";
-      }
-
-      parrafoRespuesta.textContent = mensaje;
+    boton.addEventListener('click', () => {
+      const indice = Math.floor(Math.random() * saludos.length);
+      texto.textContent = saludos[indice];
     });
   </script>
 </body>
 </html>
 
 
+
+   
